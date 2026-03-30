@@ -35,7 +35,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.Activity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -178,7 +178,7 @@ public class LocationAssistant
 
     // Parameters
     private final Context context;
-    private AppCompatActivity activity;
+    private Activity activity;
     private Listener listener;
     private final int priority;
     private final long updateInterval;
@@ -215,8 +215,8 @@ public class LocationAssistant
     public LocationAssistant(final Context context, Listener listener, Accuracy accuracy, long updateInterval,
                              boolean allowMockLocations) {
         this.context = context;
-        if (context instanceof AppCompatActivity)
-            this.activity = (AppCompatActivity) context;
+        if (context instanceof Activity)
+            this.activity = (Activity) context;
         this.listener = listener;
         switch (accuracy) {
             case HIGH:
@@ -281,7 +281,7 @@ public class LocationAssistant
      * @param activity the activity that wants to receive location updates
      * @param listener a listener that will receive location-related events
      */
-    public void register(AppCompatActivity activity, Listener listener) {
+    public void register(Activity activity, Listener listener) {
         this.activity = activity;
         this.listener = listener;
         checkInitialLocation();
@@ -373,7 +373,7 @@ public class LocationAssistant
     }
 
     /**
-     * Call this method at the end of your {@link AppCompatActivity#onRequestPermissionsResult} implementation to notify the
+     * Call this method at the end of your Activity#onRequestPermissionsResult implementation to notify the
      * LocationAssistant of an update in permissions.
      *
      * @param requestCode  the request code returned to the activity (simply pass it on)
@@ -397,7 +397,7 @@ public class LocationAssistant
     }
 
     /**
-     * Call this method at the end of your  implementation to notify the
+     * Call this method at the end of your Activity#onActivityResult implementation to notify the
      * LocationAssistant of a change in location provider settings.
      *
      * @param requestCode the request code returned to the activity (simply pass it on)
@@ -405,7 +405,7 @@ public class LocationAssistant
      */
     public void onActivityResult(int requestCode, int resultCode) {
         if (requestCode != REQUEST_CHECK_SETTINGS) return;
-        if (resultCode == AppCompatActivity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK) {
             changeSettings = false;
             locationStatusOk = true;
         }

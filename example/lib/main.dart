@@ -4,7 +4,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:trust_location/trust_location.dart';
 
-import 'package:location_permissions/location_permissions.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,9 +44,8 @@ class _MyAppState extends State<MyApp> {
 
   /// request location permission at runtime.
   void requestLocationPermission() async {
-    PermissionStatus permission =
-        await LocationPermissions().requestPermissions();
-    print('permissions: $permission');
+    PermissionStatus status = await Permission.location.request();
+    print('permissions: $status');
   }
 
   @override

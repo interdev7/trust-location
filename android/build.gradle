@@ -4,28 +4,29 @@ version '2.0.13'
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath 'com.android.tools.build:gradle:8.9.1'
     }
 }
 
 rootProject.allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 29
+    namespace 'com.wongpiwat.trust_location'
+    compileSdk 36
 
     defaultConfig {
-        minSdkVersion 21
+        minSdk 23
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     lintOptions {
@@ -34,11 +35,10 @@ android {
 }
 
 dependencies {
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.3.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
-    implementation "androidx.annotation:annotation:1.2.0"
-    implementation 'com.google.android.gms:play-services-location:18.0.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation "androidx.annotation:annotation:1.8.0"
+    implementation 'com.google.android.gms:play-services-location:21.2.0'
 }

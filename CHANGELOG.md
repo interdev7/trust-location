@@ -1,3 +1,12 @@
+## 3.0.0
+
+* Migrate to Flutter Android V2 embedding (FlutterPlugin, ActivityAware).
+* Upgrade Android Gradle Plugin to 8.9.1 and Gradle to 8.13.
+* Modernize Android build configuration with declarative plugins block and namespaces.
+* Fix Android 12+ compatibility (android:exported).
+* Replace outdated location_permissions with permission_handler in example.
+* Support Java 17/21.
+
 ## 2.0.13
 
 * Fix MissingPluginException.

@@ -33,6 +33,8 @@ secrets.dart
 **/android/**/gradle-wrapper.jar
 **/android/.gradle
 **/android/captures/
+**/android/app/.cxx/
+**/android/build/
 **/android/gradlew
 **/android/gradlew.bat
 **/android/local.properties
